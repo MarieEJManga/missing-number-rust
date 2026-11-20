@@ -51,13 +51,16 @@ cargo run --release --example benchmark
 
 ## Benchmark Results
 
+
 Input size: 1,000,000 numbers  
 Iterations: 20
 
-- Mathematical Sum: 1.030 ms average
-- Sorting: 4.353 ms average
+- Mathematical Sum: 0.972 ms average
+- Sorting: 2.596 ms average
 
-The mathematical sum algorithm was faster in this benchmark.
+The mathematical sum algorithm was approximately 2.7 times faster than the sorting algorithm in this benchmark.
+
+Benchmark timings may vary depending on the computer and system conditions.
 
 ## CSES Submission
 
