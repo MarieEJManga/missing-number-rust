@@ -1,42 +1,29 @@
+
 # Missing Number – Rust Project
 
 ## Overview
 
-This project solves the CSES problem **Missing Number (1083)**.
+This project solves the CSES problem Missing Number (1083).
 
 The task is to find the one missing number from a sequence containing numbers from 1 to n.
 
-Three algorithms are implemented and compared:
-
-1. **Mathematical Sum Algorithm**
-   - Calculates the expected sum from 1 to n.
-   - Subtracts the sum of the given numbers.
-   - Time complexity: O(n).
-   - Uses u64 to safely calculate the sum.
-
-2. **Sorting Algorithm**
-   - Sorts the given numbers.
-   - Checks which number is missing.
-   - Time complexity: O(n log n).
-
-3. **XOR Algorithm**
-   - Uses bitwise XOR operations to cancel matching numbers.
-   - The remaining value is the missing number.
-   - Time complexity: O(n).
-   - Uses u32 because the values fit within the CSES problem constraints.
+Three algorithms are implemented:
+1. Mathematical Sum
+2. Sorting
+3. XOR (Bitwise Operation)
 
 ## Project Structure
 
-- `src/main.rs` – Main program.
-- `src/math.rs` – Mathematical sum algorithm.
-- `src/sorting.rs` – Sorting algorithm.
-- `src/xor.rs` – XOR algorithm.
-- `src/lib.rs` – Exports the algorithms.
-- `tests/algorithm_tests.rs` – Algorithm tests.
-- `tests/cses_tests.rs` – CSES test integration.
-- `examples/benchmark.rs` – Benchmark for all three algorithms.
-- `BENCHMARK.md` – Benchmark results and interpretation.
-- `missing_number_cses.rs` – Standalone source submitted to CSES.
+- src/main.rs – Main program.
+- src/math.rs – Mathematical Sum algorithm.
+- src/sorting.rs – Sorting algorithm.
+- src/xor.rs – XOR algorithm.
+- src/lib.rs – Exports the algorithms.
+- tests/algorithm_tests.rs – Algorithm tests.
+- tests/cses_tests.rs – CSES test integration.
+- benches/benchmark.rs – Criterion benchmark.
+- BENCHMARK.md – Benchmark results.
+- missing_number_cses.rs – Standalone CSES submission.
 
 ## How to Run
 
@@ -52,34 +39,26 @@ Run all tests:
 cargo test
 ```
 
-Run the benchmark:
+Run the Criterion benchmark:
 
 ```bash
-cargo run --release --example benchmark
+cargo bench
 ```
 
 ## Benchmark Results
 
-Benchmark setup:
 - Input size: 1,000,000 numbers.
-- Iterations: 20.
+- Framework: Criterion 0.5.
+- Samples: 100 measurements per algorithm.
 - Build mode: Release.
 
-| Algorithm | Average execution time |
+| Algorithm | Estimated time |
 |---|---:|
-| Mathematical Sum | 0.998 ms |
-| Sorting | 1.870 ms |
-| XOR | 0.632 ms |
+| Mathematical Sum | 107.62 µs |
+| Sorting | 598.58 µs |
+| XOR | 119.21 µs |
 
-The XOR algorithm was the fastest in this benchmark.
-
-It was approximately:
-- 1.58 times faster than Mathematical Sum.
-- 2.96 times faster than Sorting.
-
-The benchmark measures the algorithm execution time. Preparation such as cloning and converting the input is outside the measured time.
-
-Benchmark timings may vary depending on the computer and system conditions.
+Mathematical Sum was the fastest in this benchmark. XOR was close, while Sorting was slower.
 
 ## CSES Submission
 
