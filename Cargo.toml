@@ -2,7 +2,7 @@
 name = "missing_numbers"
 version = "0.1.0"
 edition = "2018"
-description = "Two algorithms for solving the CSES Missing Number problem"
+description = "Three algorithms for solving the CSES Missing Number problem"
 authors = ["Marie"]
 
 [dependencies]
